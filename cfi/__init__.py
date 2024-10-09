@@ -14,8 +14,8 @@ cli = typer.Typer(context_settings={"help_option_names": ["-h", "--help"]})
 # meta
 cli.command("init", help="Initialize your project.")(init)
 cli.command("list", help="List your templates.")(list)
-cli.command("import", help="Import templates from a `cfi` file.")(import_fn)
-cli.command("export", help="Export templates to a `cfi` file.")(export_fn)
+cli.command("export", help="Export templates to a (`cfi`) file.")(export_fn)
+cli.command("import", help="Import templates from a (`cfi`) file.")(import_fn)
 
 # crud
 cli.command("add", help="Add a new template.")(add)

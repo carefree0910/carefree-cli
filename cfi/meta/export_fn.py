@@ -20,8 +20,8 @@ def export_fn(
         str,
         Argument(
             help=(
-                "Path to export the templates to.\n\n"
-                "> It is recommended to use a '.cfi' file extension."
+                "Path to export the templates to. "
+                "It is recommended to use a '.cfi' file extension."
             )
         ),
     ] = "templates.cfi",

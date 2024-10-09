@@ -7,8 +7,8 @@ template_argument = Annotated[
     Argument(
         help=(
             "The `cli` command template, there are two common formats:\n\n"
-            "* plain command, i.e. the direct command to run.\n\n"
-            "* placeholder template, which is a string with some '{}'s, and you can"
+            "  * plain command, i.e. the direct command to run.\n\n"
+            "  * placeholder template, which is a string with some '{}'s, and you can"
             "specify the values of these '{}'s later in the `load` command.\n\n"
             "> you can (and it is recommended) to provide a 'name' for each '{}' in"
             "the placeholder template, so identify them in `load` will be easier.\n\n"
@@ -23,9 +23,9 @@ hierarchy_argument = Annotated[
     Argument(
         help=(
             "Hierarchy of the template, use '/' to separate levels, and:\n\n"
-            "* at least 1 level should be provided.\n\n"
-            "* it is recommended to use at most 2 levels.\n\n"
-            "* the last level will be used as the template name."
+            "  * at least 1 level should be provided.\n\n"
+            "  * it is recommended to use at most 2 levels.\n\n"
+            "  * the last level will be used as the template name."
         ),
     ),
 ]

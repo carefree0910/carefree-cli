@@ -14,8 +14,8 @@ def list(
         Argument(
             help=(
                 "Hierarchy of the template to list, use '/' to separate levels.\n\n"
-                "* 'level1/level2' will list all templates under 'level1 -> level2'.\n\n"
-                "* `None` will list all existing templates.\n\n"
+                "  * 'level1/level2' will list all templates under 'level1 -> level2'.\n\n"
+                "  * `None` will list all existing templates.\n\n"
             ),
         ),
     ] = None,
