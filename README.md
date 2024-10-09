@@ -80,3 +80,11 @@ cfi export
 ```bash
 cfi import -h
 ```
+
+## Documentation
+
+An auto-generated documentation is available [here](https://github.com/carefree0910/carefree-cli/blob/main/docs.md).
+
+> ```bash
+> typer cfi utils docs --name cfi --output docs.md --title '`carefree-cli`'
+> ```
