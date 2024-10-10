@@ -34,4 +34,4 @@ def add(
         cmd = Template(cmd=template, is_plain=is_plain)
         template_path.write_text(cmd.model_dump_json())
         if verbose:
-            console.log(f"""'{template}' is saved to '{template_path}'.""")
+            console.log(f"""[green]{template}[/green] is saved to '{template_path}'.""")
