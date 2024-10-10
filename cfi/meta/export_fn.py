@@ -3,17 +3,12 @@ import json
 from typer import Argument
 from typing import List
 from pathlib import Path
-from pydantic import BaseModel
 from typing_extensions import Annotated
 
 from .. import console
 from ..utils import load_settings_or_error
+from ..schema import Template
 from ..constants import CFI_SUFFIX
-
-
-class Template(BaseModel):
-    cmd: str
-    hierarchy: Path
 
 
 def export_fn(

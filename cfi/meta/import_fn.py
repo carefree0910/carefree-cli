@@ -5,14 +5,14 @@ from pathlib import Path
 from typing_extensions import Annotated
 
 from .. import console
-from .export_fn import Template
+from ..schema import Template
 from ..crud.create import add
 
 
 def import_fn(
     file: Annotated[
         str,
-        Argument(help=("Path of the file to import the templates from.\n\n")),
+        Argument(help=("Path of the file to import the templates from.")),
     ],
 ) -> None:
     file_path = Path(file)
