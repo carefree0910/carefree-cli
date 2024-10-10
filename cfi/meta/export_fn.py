@@ -8,6 +8,7 @@ from typing_extensions import Annotated
 
 from .. import console
 from ..utils import load_settings_or_error
+from ..constants import CFI_SUFFIX
 
 
 class Template(BaseModel):
@@ -30,7 +31,7 @@ def export_fn(
         for child in parent.iterdir():
             if child.is_dir():
                 _walk(child)
-            elif child.suffix == ".txt":
+            elif child.suffix == CFI_SUFFIX:
                 templates.append(
                     Template(
                         cmd=child.read_text(),

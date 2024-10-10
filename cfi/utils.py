@@ -4,6 +4,7 @@ from pathlib import Path
 from pydantic import BaseModel
 
 from . import console
+from .constants import CFI_SUFFIX
 from .constants import CFI_SETTINGS_PATH
 
 
@@ -30,4 +31,5 @@ def parse_hierarchy_parent(hierarchy: str) -> Path:
 
 
 def parse_hierarchy_path(hierarchy: str) -> Path:
-    return parse_hierarchy_parent(hierarchy) / Path(hierarchy).with_suffix(".txt").name
+    parent = parse_hierarchy_parent(hierarchy)
+    return parent / Path(hierarchy).with_suffix(CFI_SUFFIX).name
