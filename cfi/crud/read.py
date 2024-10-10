@@ -9,6 +9,7 @@ from typing import NamedTuple
 from typing_extensions import Annotated
 
 from .. import console
+from ..utils import beautify_cmd
 from ..utils import parse_hierarchy_path
 from ..common import hierarchy_argument
 from ..schema import Template
@@ -64,15 +65,15 @@ def load(
         cmd = parsed.cmd
     else:
         kwargs = {}
-        console.log(f"filling command '{parsed.cmd}'")
+        console.log(f"filling command {beautify_cmd(parsed.cmd)}")
         for to_fill in parsed.to_fill:
             value = console.ask(f"[cyan]`{to_fill}`")
             kwargs[to_fill] = value
         cmd = parsed.cmd.format(**kwargs)
     if not run_command:
         console.log("command loaded, copy-paste as you like!")
-        console.log(f"[green]{cmd}")
+        console.log(beautify_cmd(cmd))
     else:
-        q = f"""command loaded as [green]{cmd}[/green], run it?"""
+        q = f"""command loaded as {beautify_cmd(cmd)}, run it?"""
         if console.ask(q, ["y", "n"], default="y") == "y":
             subprocess.run(cmd, shell=True, check=True)

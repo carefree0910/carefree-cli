@@ -4,6 +4,7 @@ from filelock import FileLock
 from typing_extensions import Annotated
 
 from .. import console
+from ..utils import beautify_cmd
 from ..utils import ask_with_warn
 from ..utils import parse_hierarchy_path
 from ..common import hierarchy_argument
@@ -34,4 +35,4 @@ def add(
         cmd = Template(cmd=template, is_plain=is_plain)
         template_path.write_text(cmd.model_dump_json())
         if verbose:
-            console.log(f"""[green]{template}[/green] is saved to '{template_path}'.""")
+            console.log(f"""{beautify_cmd(template)} is saved to '{template_path}'.""")

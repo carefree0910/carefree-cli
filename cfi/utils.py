@@ -33,3 +33,7 @@ def parse_hierarchy_parent(hierarchy: str) -> Path:
 def parse_hierarchy_path(hierarchy: str) -> Path:
     parent = parse_hierarchy_parent(hierarchy)
     return parent / Path(hierarchy).with_suffix(CFI_SUFFIX).name
+
+
+def beautify_cmd(cmd: str) -> str:
+    return f"[green]{cmd}[/green]"
