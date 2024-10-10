@@ -29,7 +29,7 @@ def export_fn(
             elif child.suffix == CFI_SUFFIX:
                 templates.append(
                     TemplatePack(
-                        cmd=child.read_text(),
+                        cmd=json.loads(child.read_text()),
                         hierarchy=child.relative_to(root),
                     )
                 )

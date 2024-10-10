@@ -20,5 +20,10 @@ def import_fn(
         templates_json = json.load(f)
     templates = [TemplatePack(**t) for t in templates_json]
     for template in templates:
-        add(template.cmd, str(template.hierarchy), verbose=False)
+        add(
+            template.cmd.cmd,
+            str(template.hierarchy),
+            is_plain=template.cmd.is_plain,
+            verbose=False,
+        )
     console.log(f"imported {len(templates)} templates from '{file_path}'!")
