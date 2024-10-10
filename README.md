@@ -64,7 +64,7 @@ cfi --install-completion
 - List templates:
 
 ```bash
-cfi list -h
+cfi ls -h
 ```
 
 ## Serializations
