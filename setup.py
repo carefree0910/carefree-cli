@@ -3,7 +3,7 @@ from setuptools import find_packages
 
 
 VERSION = "0.1.1"
-DESCRIPTION = "A `cli` that helps you manage your `cli` commands"
+DESCRIPTION = "A `cli` that helps you manage your commands"
 with open("README.md", encoding="utf-8") as f:
     LONG_DESCRIPTION = f.read()
 

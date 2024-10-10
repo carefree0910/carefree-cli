@@ -1,15 +1,15 @@
-A `cli` that helps you manage your `cli` commands.
+A `cli` that helps you manage your commands.
 
 ## Design
 
 Basically, `carefree-cli` aims to help you when:
 
-- you need to run lots of `cli` commands everyday.
+- you need to run lots of (`cli` / `bash`) commands everyday.
 - these commands can be divided into several groups, and commands in each group are highly repetitive.
 
 So the implementation of `carefree-cli` is very simple:
 
-- It will prompt you to create `cli` command templates and manage them in hierarchical structures.
+- It will prompt you to create (`cli` / `bash`) command templates and manage them in hierarchical structures.
 - It will prompt you to 'fill' the template with your own parameters when you want to run a command.
 - It will printed out the final command for you to copy-paste / run.
 
@@ -29,13 +29,13 @@ pip install carefree-cli
 cfi init
 ```
 
-2. Create a `cli` template:
+2. Create a command template:
 
 ```bash
 cfi add -h
 ```
 
-3. Fill a `cli` template:
+3. Fill a command template:
 
 ```bash
 cfi load -h
