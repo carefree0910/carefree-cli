@@ -6,6 +6,7 @@ from typing_extensions import Annotated
 from .. import console
 from ..utils import parse_hierarchy_path
 from ..utils import load_settings_or_error
+from ..constants import CFI_SUFFIX
 
 
 def list(
@@ -39,7 +40,7 @@ def list(
                     guide_style=style,
                 )
                 _list(child, branch)
-            else:
+            elif child.suffix == CFI_SUFFIX:
                 text_filename = Text(child.stem, "green")
                 text_filename.stylize(f"link file://{child}")
                 file_size = child.stat().st_size
