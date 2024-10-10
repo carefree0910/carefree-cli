@@ -1,5 +1,6 @@
 import json
 
+from typing import List
 from pathlib import Path
 from pydantic import BaseModel
 
@@ -25,14 +26,14 @@ def ask_with_warn(question: str) -> bool:
     return console.ask(f"[yellow]{question}", ["y", "n"], default="n") == "y"
 
 
-def parse_hierarchy_parent(hierarchy: str) -> Path:
+def parse_hierarchy_parent(hierarchy: List[str]) -> Path:
     settings = load_settings_or_error()
-    return settings.data_dir / Path(hierarchy).parent
+    return settings.data_dir.joinpath(*hierarchy[:-1])
 
 
-def parse_hierarchy_path(hierarchy: str) -> Path:
+def parse_hierarchy_path(hierarchy: List[str]) -> Path:
     parent = parse_hierarchy_parent(hierarchy)
-    return parent / Path(hierarchy).with_suffix(CFI_SUFFIX).name
+    return parent / f"{hierarchy[-1]}{CFI_SUFFIX}"
 
 
 def beautify_cmd(cmd: str) -> str:

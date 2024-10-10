@@ -1,4 +1,5 @@
 from typer import Argument
+from typing import List
 from typing_extensions import Annotated
 
 
@@ -20,10 +21,10 @@ template_argument = Annotated[
     ),
 ]
 hierarchy_argument = Annotated[
-    str,
+    List[str],
     Argument(
         help=(
-            "Hierarchy of the template, use '/' to separate levels, and:\n\n"
+            "Hierarchy of the template, use spaces (' ') to separate levels, and:\n\n"
             "  * at least 1 level should be provided.\n\n"
             "  * it is recommended to use at most 2 levels.\n\n"
             "  * the last level will be used as the template name."
