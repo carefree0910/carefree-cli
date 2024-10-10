@@ -6,7 +6,8 @@ template_argument = Annotated[
     str,
     Argument(
         help=(
-            "The `cli` command template, there are two common formats:\n\n"
+            "The `cli` command template, or path to the command template (in which case it should end with `.txt`)\n\n"
+            "There are two common formats:\n\n"
             "  * plain command, i.e. the direct command to run.\n\n"
             "  * placeholder template, which is a string with some '{}'s, and you can"
             "specify the values of these '{}'s later in the `load` command.\n\n"

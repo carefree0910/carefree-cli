@@ -1,4 +1,5 @@
 from typer import Option
+from pathlib import Path
 from filelock import FileLock
 from typing_extensions import Annotated
 
@@ -28,6 +29,8 @@ def add(
             ):
                 console.error("Then please choose another hierarchy.")
                 return None
+        if template.endswith(".txt"):
+            template = Path(template).read_text()
         cmd = Template(cmd=template, is_plain=is_plain)
         template_path.write_text(cmd.model_dump_json())
         if verbose:
