@@ -67,7 +67,7 @@ def load(
         kwargs = {}
         console.log(f"filling command {beautify_cmd(parsed.cmd)}")
         for to_fill in parsed.to_fill:
-            value = console.ask(f"[cyan]`{to_fill}`")
+            value = console.ask(f"[bold][cyan]`{to_fill}`")
             kwargs[to_fill] = value
         cmd = parsed.cmd.format(**kwargs)
     if not run_command:
