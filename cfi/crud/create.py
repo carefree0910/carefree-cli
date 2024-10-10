@@ -23,6 +23,7 @@ def add(
     verbose: bool = True,
 ) -> None:
     template_path = parse_hierarchy_path(hierarchy)
+    template_path.parent.mkdir(parents=True, exist_ok=True)
     with FileLock(template_path.with_suffix(".lock")):
         if template_path.exists():
             if not ask_with_warn(
