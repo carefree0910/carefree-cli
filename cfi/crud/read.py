@@ -37,7 +37,8 @@ def parse(template: Template) -> Parsed:
     for i, m in enumerate(re.finditer(r"\{([^}]*)\}", cmd)):
         i_name = m.group(1)
         if i_name:
-            to_fill.append(i_name)
+            if i_name not in to_fill:
+                to_fill.append(i_name)
         else:
             no_names.append(i)
             to_fill.append(f"__{i}")
