@@ -2,6 +2,6 @@ from pathlib import Path
 from pydantic import BaseModel
 
 
-class Template(BaseModel):
+class TemplatePack(BaseModel):
     cmd: str
     hierarchy: Path

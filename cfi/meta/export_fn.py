@@ -7,7 +7,7 @@ from typing_extensions import Annotated
 
 from .. import console
 from ..utils import load_settings_or_error
-from ..schema import Template
+from ..schema import TemplatePack
 from ..constants import CFI_SUFFIX
 
 
@@ -28,14 +28,14 @@ def export_fn(
                 _walk(child)
             elif child.suffix == CFI_SUFFIX:
                 templates.append(
-                    Template(
+                    TemplatePack(
                         cmd=child.read_text(),
                         hierarchy=child.relative_to(root),
                     )
                 )
 
     root = load_settings_or_error().data_dir
-    templates: List[Template] = []
+    templates: List[TemplatePack] = []
     _walk(root)
     templates_json = [t.model_dump(mode="json") for t in templates]
     target_path = Path(target)
