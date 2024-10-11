@@ -48,7 +48,7 @@ def list(
                 text_filename.append(f" ({decimal(file_size)})", "blue")
                 tree.add(Text("📄 ") + text_filename)
 
-    if hierarchy is None:
+    if not hierarchy:
         parent = load_settings_or_error().data_dir
     else:
         path = parse_hierarchy_path(hierarchy)
