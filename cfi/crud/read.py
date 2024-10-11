@@ -68,4 +68,4 @@ def load(hierarchy: hierarchy_argument) -> None:
         console.log("command loaded as below, it is already copied to clipboard!")
     except Exception as e:
         console.warn(f"cannot copy to clipboard ([red]{e}[/red]), here is the command:")
-    console.print(beautify_cmd(cmd))
+    console.print(beautify_cmd(cmd), soft_wrap=True)
