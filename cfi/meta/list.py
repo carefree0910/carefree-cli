@@ -1,4 +1,5 @@
 from typer import Argument
+from typing import List
 from typing import Optional
 from pathlib import Path
 from typing_extensions import Annotated
@@ -11,11 +12,11 @@ from ..constants import CFI_SUFFIX
 
 def list(
     hierarchy: Annotated[
-        Optional[str],
+        Optional[List[str]],
         Argument(
             help=(
-                "Hierarchy of the template to list, use '/' to separate levels.\n\n"
-                "  * 'level1/level2' will list all templates under 'level1 -> level2'.\n\n"
+                "Hierarchy of the template, use spaces (' ') to separate levels.\n\n"
+                "  * 'level1 level2' will list all templates under 'level1 -> level2'.\n\n"
                 "  * `None` will list all existing templates.\n\n"
             ),
         ),

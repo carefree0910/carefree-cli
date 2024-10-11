@@ -30,7 +30,7 @@ def export_fn(
                 templates.append(
                     TemplatePack(
                         cmd=json.loads(child.read_text()),
-                        hierarchy=child.relative_to(root),
+                        hierarchy=list(child.relative_to(root).with_suffix("").parts),
                     )
                 )
 

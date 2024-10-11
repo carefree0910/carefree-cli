@@ -22,7 +22,7 @@ def import_fn(
     for template in templates:
         add(
             template.cmd.cmd,
-            str(template.hierarchy),
+            template.hierarchy,
             is_plain=template.cmd.is_plain,
             verbose=False,
         )

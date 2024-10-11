@@ -1,4 +1,4 @@
-from pathlib import Path
+from typing import List
 from pydantic import BaseModel
 
 
@@ -9,4 +9,4 @@ class Template(BaseModel):
 
 class TemplatePack(BaseModel):
     cmd: Template
-    hierarchy: Path
+    hierarchy: List[str]
