@@ -63,6 +63,9 @@ def load(hierarchy: hierarchy_argument) -> None:
 
     import pyperclip
 
-    pyperclip.copy(cmd)
-    console.log("command loaded as below, it is already copied to clipboard!")
-    console.log(beautify_cmd(cmd))
+    try:
+        pyperclip.copy(cmd)
+        console.log("command loaded as below, it is already copied to clipboard!")
+    except Exception as e:
+        console.warn(f"cannot copy to clipboard ([red]{e}[/red]), here is the command:")
+    console.print(beautify_cmd(cmd))
