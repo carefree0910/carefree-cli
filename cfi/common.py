@@ -26,7 +26,6 @@ hierarchy_argument = Annotated[
         help=(
             "Hierarchy of the template, use spaces (' ') to separate levels, and:\n\n"
             "  * at least 1 level should be provided.\n\n"
-            "  * it is recommended to use at most 2 levels.\n\n"
             "  * the last level will be used as the template name."
         ),
     ),
