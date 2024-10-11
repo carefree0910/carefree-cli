@@ -3,10 +3,8 @@ import subprocess
 
 import regex as re
 
-from typer import Option
 from typing import List
 from typing import NamedTuple
-from typing_extensions import Annotated
 
 from .. import console
 from ..utils import beautify_cmd
@@ -46,16 +44,7 @@ def parse(template: Template) -> Parsed:
     return Parsed(cmd, to_fill)
 
 
-def load(
-    hierarchy: hierarchy_argument,
-    run_command: Annotated[
-        bool,
-        Option(
-            "--run/--dry",
-            help="Whether to run the command (with `subprocess.run`) or just print it.",
-        ),
-    ] = True,
-) -> None:
+def load(hierarchy: hierarchy_argument) -> None:
     template_path = parse_hierarchy_path(hierarchy)
     if not template_path.exists():
         console.error(f"Cannot find template at '{template_path}'.")
@@ -71,10 +60,9 @@ def load(
             value = console.ask(f"[bold][cyan]`{to_fill}`")
             kwargs[to_fill] = value
         cmd = parsed.cmd.format(**kwargs)
-    if not run_command:
-        console.log("command loaded, copy-paste as you like!")
-        console.log(beautify_cmd(cmd))
-    else:
-        q = f"""command loaded as {beautify_cmd(cmd)}, run it?"""
-        if console.ask(q, ["y", "n"], default="y") == "y":
-            subprocess.run(cmd, shell=True, check=True)
+
+    import pyperclip
+
+    pyperclip.copy(cmd)
+    console.log("command loaded as below, it is already copied to clipboard!")
+    console.log(beautify_cmd(cmd))

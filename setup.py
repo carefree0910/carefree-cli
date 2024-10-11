@@ -18,6 +18,7 @@ setup(
         "typer",
         "filelock",
         "pydantic",
+        "pyperclip",
     ],
     author="carefree0910",
     author_email="syameimaru.saki@gmail.com",
