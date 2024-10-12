@@ -11,7 +11,7 @@ setup(
     name="carefree-cli",
     version=VERSION,
     packages=find_packages(exclude=("tests",)),
-    entry_points={"console_scripts": ["cfi = cfi:cli"]},
+    entry_points={"console_scripts": ["cfi = cfi:cli", "cfir = cfi:clir"]},
     install_requires=[
         "rich",
         "regex",

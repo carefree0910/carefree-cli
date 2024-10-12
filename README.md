@@ -41,6 +41,12 @@ cfi add -h
 cfi load -h
 ```
 
+or, if you want a shortcut:
+
+```bash
+cfir -h
+```
+
 ## Common Usages
 
 > Fun fact: you can add `cfi` templates with `carefree-cli` itself!

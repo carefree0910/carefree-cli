@@ -9,7 +9,9 @@ from .crud.read import load
 from .crud.update import update
 from .crud.delete import delete
 
-cli = typer.Typer(context_settings={"help_option_names": ["-h", "--help"]})
+ctx_settings = {"help_option_names": ["-h", "--help"]}
+cli = typer.Typer(context_settings=ctx_settings)
+clir = typer.Typer(context_settings=ctx_settings)
 
 # meta
 cli.command("init", help="Initialize your project.")(init)
@@ -19,6 +21,7 @@ cli.command("import", help="Import templates from a (`cfi`) file.")(import_fn)
 
 # crud
 cli.command("add", help="Add a new template.")(add)
-cli.command("load", help="Load a template.")(load)
+for c in [cli, clir]:
+    c.command("load", help="Load a template.")(load)
 cli.command("update", help="Update a template.")(update)
 cli.command("delete", help="Delete a template.")(delete)
