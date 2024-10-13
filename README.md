@@ -44,7 +44,7 @@ cfi load -h
 or, if you want a shortcut:
 
 ```bash
-cfir -h
+cfil -h
 ```
 
 ## Common Usages

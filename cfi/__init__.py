@@ -11,7 +11,7 @@ from .crud.delete import delete
 
 ctx_settings = {"help_option_names": ["-h", "--help"]}
 cli = typer.Typer(context_settings=ctx_settings)
-clir = typer.Typer(context_settings=ctx_settings)
+clil = typer.Typer(context_settings=ctx_settings)
 
 # meta
 cli.command("init", help="Initialize your project.")(init)
@@ -21,7 +21,7 @@ cli.command("import", help="Import templates from a (`cfi`) file.")(import_fn)
 
 # crud
 cli.command("add", help="Add a new template.")(add)
-for c in [cli, clir]:
+for c in [cli, clil]:
     c.command("load", help="Load a template.")(load)
 cli.command("update", help="Update a template.")(update)
 cli.command("delete", help="Delete a template.")(delete)
